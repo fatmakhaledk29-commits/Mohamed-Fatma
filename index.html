@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohamed & Fatma 💍</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Great+Vibes&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== BASE ===== */
+body{
+margin:0;
+font-family:Poppins;
+background:black;
+overflow:hidden;
+color:white;
+}
+
+/* ===== INTRO ===== */
+#intro{
+position:fixed;
+inset:0;
+background:black;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:99999;
+animation:introFade 7s forwards;
+}
+
+.netflix{
+font-family:Cinzel;
+letter-spacing:8px;
+opacity:0;
+animation:fadeIn 2s 0.5s forwards;
+color:#aaa;
+}
+
+.title{
+font-family:'Great Vibes';
+font-size:70px;
+opacity:0;
+animation:fadeIn 2s 2.5s forwards;
+color:#a99656;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:scale(0.8);}
+to{opacity:1;transform:scale(1);}
+}
+
+@keyframes introFade{
+0%{opacity:1;}
+85%{opacity:1;}
+100%{opacity:0;visibility:hidden;}
+}
+
+/* ===== INVITE 3D ===== */
+#invite{
+position:fixed;
+inset:0;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#0b0a09;
+z-index:99998;
+perspective:1200px;
+cursor:pointer;
+}
+
+.card{
+width:340px;
+height:220px;
+transform-style:preserve-3d;
+transition:1.2s;
+position:relative;
+}
+
+.front,.back{
+position:absolute;
+width:100%;
+height:100%;
+backface-visibility:hidden;
+border-radius:18px;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+
+.front{
+background:#f5eee6;
+color:#4b3a2a;
+}
+
+.back{
+background:#e8dac8;
+transform:rotateX(180deg);
+}
+
+.open .card{
+transform:rotateX(180deg);
+}
+
+/* ===== SITE ===== */
+#site{
+display:none;
+}
+
+/* ===== HERO CINEMATIC ===== */
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+position:relative;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+inset:0;
+background:url("images/couple.jpg") center/cover no-repeat;
+transform:scale(1.15);
+animation:zoom 12s infinite alternate;
+filter:brightness(0.6);
+}
+
+@keyframes zoom{
+from{transform:scale(1.15);}
+to{transform:scale(1.05);}
+}
+
+.hero h1{
+font-family:'Great+Vibes';
+font-size:75px;
+z-index:2;
+}
+
+.hero p{
+z-index:2;
+}
+
+/* ===== SECTIONS ===== */
+.section{
+padding:80px 20px;
+background:#0d0b0a;
+text-align:center;
+}
+
+.card{
+background:rgba(255,255,255,0.08);
+padding:20px;
+margin:30px auto;
+max-width:500px;
+border-radius:15px;
+backdrop-filter:blur(8px);
+}
+
+/* ===== INVITATION IMAGE ===== */
+.invitation-img{
+width:100%;
+border-radius:12px;
+box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* ===== TIMER ===== */
+.timer{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+margin-top:15px;
+}
+
+.box{
+background:#1a1512;
+padding:15px;
+border-radius:10px;
+}
+
+/* ===== LOCATION ===== */
+iframe{
+border-radius:12px;
+margin-top:10px;
+}
+
+/* ===== STORY ===== */
+.story{
+padding:80px 20px;
+text-align:center;
+}
+
+.scene{
+margin:80px auto;
+max-width:600px;
+opacity:0;
+transform:translateY(50px);
+transition:1s;
+}
+
+.scene.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* ===== FOOTER ===== */
+.footer{
+text-align:center;
+padding:60px;
+font-family:'Great Vibes';
+font-size:28px;
+color:#d4af37;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- 🎬 INTRO -->
+<div id="intro">
+<div class="netflix">A NETFLIX ORIGINAL FILM</div>
+<div class="title">Mohamed & Fatma</div>
+</div>
+
+<!-- 💌 INVITE -->
+<div id="invite" onclick="openFilm()">
+<div class="card">
+<div class="front">
+<h2>INVITED 💌</h2>
+<p>Click to open...</p>
+</div>
+<div class="back">
+<h2>Welcome 💍</h2>
+</div>
+</div>
+</div>
+
+<!-- 🎬 SITE -->
+<div id="site">
+
+<!-- HERO -->
+<div class="hero">
+<h1>Mohamed & Fatma</h1>
+<p>29 May 2026 • 6:00 PM</p>
+</div>
+
+<!-- 📖 STORY -->
+<div class="story">
+
+<div class="scene">Two lives. Two different beginnings.</div>
+<div class="scene">He was born on 17 September 2000 ✨</div>
+<div class="scene">She was born on 12 February 2005 🌸</div>
+<div class="scene">They met on 25 January 2026 💍</div>
+<div class="scene">And everything changed forever 💖</div>
+
+</div>
+
+<!-- 💍 INVITATION IMAGE -->
+<div class="section">
+<div class="card">
+<h2>Save The Date 💍</h2>
+<img src="images/invitation.jpg" class="invitation-img">
+</div>
+</div>
+
+<!-- ⏳ TIMER -->
+<div class="section">
+<div class="card">
+<h3>Our Special Day⏳</h3>
+
+<div class="timer">
+<div class="box"><span id="d">00</span> Days</div>
+<div class="box"><span id="h">00</span> Hours</div>
+<div class="box"><span id="m">00</span> Min</div>
+<div class="box"><span id="s">00</span> Sec</div>
+</div>
+
+</div>
+</div>
+
+<!-- 📍 LOCATION -->
+<div class="section">
+<div class="card">
+<h3>Join Us At📍</h3>
+<p>Saraya Oseem - Kom Oseem - Fayoum</p>
+
+<iframe 
+src="https://maps.google.com/maps?q=Kom%20Oseem%20Fayoum&output=embed"
+width="100%" height="220"></iframe>
+
+</div>
+</div>
+
+
+<!-- FOOTER -->
+<div class="footer">
+___We can't wait to celebrate with you 💖__
+</div>
+
+</div>
+
+<script>
+
+/* OPEN */
+function openFilm(){
+document.querySelector(".card").classList.add("open");
+
+setTimeout(()=>{
+document.getElementById("invite").style.display="none";
+document.getElementById("site").style.display="block";
+document.body.style.overflow="auto";
+},1000);
+}
+
+/* TIMER */
+setInterval(()=>{
+let t=new Date("May 29,2026 18:00:00") - new Date();
+
+d.innerHTML=Math.floor(t/86400000);
+h.innerHTML=Math.floor(t/3600000)%24;
+m.innerHTML=Math.floor(t/60000)%60;
+s.innerHTML=Math.floor(t/1000)%60;
+},1000);
+
+/* STORY ANIMATION */
+window.addEventListener("scroll",()=>{
+document.querySelectorAll(".scene").forEach(s=>{
+if(s.getBoundingClientRect().top < window.innerHeight-100){
+s.classList.add("show");
+}
+});
+});
+
+</script>
+
+</body>
+</html>
