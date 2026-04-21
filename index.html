@@ -216,7 +216,78 @@ font-family:'Great Vibes';
 font-size:28px;
 color:#d4af37;
 }
+/* ===== MOBILE RESPONSIVE FIX ===== */
+@media (max-width: 768px){
 
+body{
+overflow-x:hidden;
+}
+
+/* HERO */
+.hero h1{
+font-size:45px;
+padding:0 10px;
+}
+
+.hero p{
+font-size:14px;
+}
+
+/* CARDS */
+.card{
+width:90%;
+margin:20px auto;
+padding:15px;
+}
+
+/* STORY */
+.scene{
+margin:50px auto;
+font-size:15px;
+padding:0 10px;
+}
+
+/* TIMER */
+.timer{
+grid-template-columns:repeat(2,1fr);
+gap:8px;
+}
+
+.box{
+padding:10px;
+font-size:14px;
+}
+
+/* INVITE CARD */
+#invite .card{
+width:280px;
+height:180px;
+}
+
+/* FOOTER */
+.footer{
+font-size:20px;
+padding:40px 10px;
+}
+
+}
+
+/* SMALL PHONES */
+@media (max-width:480px){
+
+.hero h1{
+font-size:35px;
+}
+
+.scene{
+font-size:14px;
+}
+
+.card{
+width:92%;
+}
+
+}
 </style>
 </head>
 
