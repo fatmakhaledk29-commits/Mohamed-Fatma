@@ -58,6 +58,56 @@ to{opacity:1;transform:scale(1);}
 100%{opacity:0;visibility:hidden;}
 }
 
+/* Scroll Down Button */
+
+.scroll-down{
+position:absolute;
+bottom:35px;
+left:50%;
+transform:translateX(-50%);
+display:flex;
+flex-direction:column;
+align-items:center;
+cursor:pointer;
+z-index:5;
+animation:float 2s infinite;
+}
+
+.scroll-down span{
+font-size:13px;
+letter-spacing:2px;
+color:#fff;
+margin-bottom:8px;
+text-transform:uppercase;
+}
+
+.arrow{
+width:18px;
+height:18px;
+border-right:2px solid #d4af37;
+border-bottom:2px solid #d4af37;
+transform:rotate(45deg);
+animation:bounce 1.5s infinite;
+}
+
+@keyframes bounce{
+0%,100%{
+transform:rotate(45deg) translate(0,0);
+}
+50%{
+transform:rotate(45deg) translate(8px,8px);
+}
+}
+
+@keyframes float{
+0%,100%{
+transform:translate(-50%,0);
+}
+50%{
+transform:translate(-50%,-8px);
+}
+}
+
 /* ===== INVITE 3D ===== */
 #invite{
 position:fixed;
@@ -317,8 +367,12 @@ width:92%;
 
 <!-- HERO -->
 <div class="hero">
-<h1>Mohamed & Fatma</h1>
-<p>6 Aug 2026 • 7:00 PM</p>
+  <h1>Mohamed & Fatma</h1>
+  <p>6 Aug 2026 • 7:00 PM</p>
+  <div class="scroll-down" onclick="scrollDown()">
+    <span>Scroll Down</span>
+    <div class="arrow"></div>
+</div>
 </div>
 
 <!-- 📖 STORY -->
@@ -407,6 +461,14 @@ s.classList.add("show");
 }
 });
 });
+
+function scrollDown(){
+
+document.querySelector(".story").scrollIntoView({
+behavior:"smooth"
+});
+
+}
 
 </script>
 
