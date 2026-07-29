@@ -58,56 +58,6 @@ to{opacity:1;transform:scale(1);}
 100%{opacity:0;visibility:hidden;}
 }
 
-/* Scroll Down Button */
-
-.scroll-down{
-position:absolute;
-bottom:35px;
-left:50%;
-transform:translateX(-50%);
-display:flex;
-flex-direction:column;
-align-items:center;
-cursor:pointer;
-z-index:5;
-animation:float 2s infinite;
-}
-
-.scroll-down span{
-font-size:13px;
-letter-spacing:2px;
-color:#fff;
-margin-bottom:8px;
-text-transform:uppercase;
-}
-
-.arrow{
-width:18px;
-height:18px;
-border-right:2px solid #d4af37;
-border-bottom:2px solid #d4af37;
-transform:rotate(45deg);
-animation:bounce 1.5s infinite;
-}
-
-@keyframes bounce{
-0%,100%{
-transform:rotate(45deg) translate(0,0);
-}
-50%{
-transform:rotate(45deg) translate(8px,8px);
-}
-}
-
-@keyframes float{
-0%,100%{
-transform:translate(-50%,0);
-}
-50%{
-transform:translate(-50%,-8px);
-}
-}
-
 /* ===== INVITE 3D ===== */
 #invite{
 position:fixed;
@@ -151,7 +101,7 @@ background:#e8dac8;
 transform:rotateX(180deg);
 }
 
-#invite.open .card{
+.open .card{
 transform:rotateX(180deg);
 }
 
@@ -175,7 +125,7 @@ position:relative;
 content:"";
 position:absolute;
 inset:0;
-background:url("https://github.com/fatmakhaledk29-commits/Mohamed-Fatma/blob/main/couple.jpg");
+background:url("images/couple.jpg") center/cover no-repeat;
 transform:scale(1.15);
 animation:zoom 12s infinite alternate;
 filter:brightness(0.6);
@@ -187,7 +137,7 @@ to{transform:scale(1.05);}
 }
 
 .hero h1{
-font-family:'Great Vibes',cursive;
+font-family:'Great+Vibes';
 font-size:75px;
 z-index:2;
 }
@@ -266,78 +216,7 @@ font-family:'Great Vibes';
 font-size:28px;
 color:#d4af37;
 }
-/* ===== MOBILE RESPONSIVE FIX ===== */
-@media (max-width: 768px){
 
-body{
-overflow-x:hidden;
-}
-
-/* HERO */
-.hero h1{
-font-size:45px;
-padding:0 10px;
-}
-
-.hero p{
-font-size:14px;
-}
-
-/* CARDS */
-.card{
-width:90%;
-margin:20px auto;
-padding:15px;
-}
-
-/* STORY */
-.scene{
-margin:50px auto;
-font-size:15px;
-padding:0 10px;
-}
-
-/* TIMER */
-.timer{
-grid-template-columns:repeat(2,1fr);
-gap:8px;
-}
-
-.box{
-padding:10px;
-font-size:14px;
-}
-
-/* INVITE CARD */
-#invite .card{
-width:280px;
-height:180px;
-}
-
-/* FOOTER */
-.footer{
-font-size:20px;
-padding:40px 10px;
-}
-
-}
-
-/* SMALL PHONES */
-@media (max-width:480px){
-
-.hero h1{
-font-size:35px;
-}
-
-.scene{
-font-size:14px;
-}
-
-.card{
-width:92%;
-}
-
-}
 </style>
 </head>
 
@@ -367,12 +246,8 @@ width:92%;
 
 <!-- HERO -->
 <div class="hero">
-  <h1>Mohamed & Fatma</h1>
-  <p>6 Aug 2026 • 7:00 PM</p>
-  <div class="scroll-down" onclick="scrollDown()">
-    <span>Scroll Down</span>
-    <div class="arrow"></div>
-</div>
+<h1>Mohamed & Fatma</h1>
+<p>6 Aug 2026 • 7:00 PM</p>
 </div>
 
 <!-- 📖 STORY -->
@@ -390,7 +265,7 @@ width:92%;
 <div class="section">
 <div class="card">
 <h2>Save The Date 💍</h2>
-<img src="https://github.com/fatmakhaledk29-commits/Mohamed-Fatma/blob/main/invitation.png" class="invitation-img">
+<img src="images/invitation.jpg" class="invitation-img">
 </div>
 </div>
 
@@ -434,19 +309,19 @@ ___We can't wait to celebrate with you 💖__
 
 /* OPEN */
 function openFilm(){
-
-document.getElementById("invite").classList.add("open");
+document.querySelector(".card").classList.add("open");
 
 setTimeout(()=>{
 document.getElementById("invite").style.display="none";
 document.getElementById("site").style.display="block";
-document.body.style.overflowY="auto";
-},1200);
-
+document.body.style.overflow="auto";
+},1000);
 }
 
 /* TIMER */
-setInterval(()=>{let t=new Date("August 6, 2026 19:00:00")-new Date();
+setInterval(()=>{
+let t=new Date("Aug 6,2026 19:00:00") - new Date();
+
 d.innerHTML=Math.floor(t/86400000);
 h.innerHTML=Math.floor(t/3600000)%24;
 m.innerHTML=Math.floor(t/60000)%60;
@@ -462,15 +337,7 @@ s.classList.add("show");
 });
 });
 
-function scrollDown(){
-
-document.querySelector(".story").scrollIntoView({
-behavior:"smooth"
-});
-
-}
-
 </script>
 
 </body>
-</html>
+</html>vv
